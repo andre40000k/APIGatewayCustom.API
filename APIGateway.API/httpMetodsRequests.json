@@ -1,0 +1,11 @@
+{
+  "CreateShop": {
+    "link": "http://localhost:5286/createShop",
+    "auntification": true
+  },
+
+  "GetByIdShop": {
+    "link": "http://localhost:5286/getByIdShop",
+    "auntification": false
+  }
+}
