@@ -1,4 +1,7 @@
-﻿using APIGateway.API.Services;
+﻿
+
+using APIGateway.API.Application.Interfaces;
+using APIGateway.API.Services;
 
 namespace APIGateway.API.Core
 {

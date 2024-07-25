@@ -1,14 +1,10 @@
-﻿using APIGateway.API.Common;
+﻿using APIGateway.API.Application.Entyte;
+using APIGateway.API.Application.Interfaces;
+using APIGateway.API.Common;
 using Newtonsoft.Json;
 
 namespace APIGateway.API.Services
 {
-    public interface IRefDataService
-    {
-        Task<string> GetDataAsync(string data);
-        Task<string> PostData(string dirName);
-    }
-
     public class RefDataService : HttpClientBase, IRefDataService
     {
         private readonly HttpClient _httpClient;
@@ -27,12 +23,14 @@ namespace APIGateway.API.Services
             return (await Get<string>(_httpClient, new Uri(endpoint), body)).Value;
         }
 
-        public async Task<string> PostData(string data)
+        public async Task<string> PostData(JsonObjects jsonObjects)
         {
+            ///// Stoped here
+
             var endpoint = _configuration.GetSection("CreateShop:link").Value;
-            string body = "{\"ShopName\":\""+data+"\",\"ShopDescription\":\"22222222222222\"}";
-            //var body = JsonConvert.SerializeObject(data);
-            return (await Post<string>(_httpClient, new Uri(endpoint), body)).Value;
+            //string body = "{\"ShopName\":\""+jsonObjects.JesonMainBadyRequest+"\",\"ShopDescription\":\"22222222222222\"}";
+            ////var body = JsonConvert.SerializeObject(data);
+            return (await Post<string>(_httpClient, new Uri(endpoint), jsonObjects.JesonMainBadyRequest)).Value;
         }
     }
 }

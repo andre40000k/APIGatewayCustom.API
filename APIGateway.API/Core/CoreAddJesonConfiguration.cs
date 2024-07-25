@@ -1,6 +1,4 @@
-﻿using APIGateway.API.Services;
-
-namespace APIGateway.API.Core
+﻿namespace APIGateway.API.Core
 {
     public static class CoreAddJesonConfiguration
     {

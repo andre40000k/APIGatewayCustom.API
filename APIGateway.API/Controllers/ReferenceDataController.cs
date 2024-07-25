@@ -1,4 +1,5 @@
-﻿using APIGateway.API.Services;
+﻿using APIGateway.API.Application.Entyte;
+using APIGateway.API.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIGateway.API.Controllers
@@ -21,9 +22,9 @@ namespace APIGateway.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostDirectorsAsync([FromBody] string directorName)
+        public async Task<IActionResult> PostDirectorsAsync([FromBody] JsonObjects jsonObjects)
         {
-            var test = await _refDataService.PostData(directorName);
+            var test = await _refDataService.PostData(jsonObjects);
             return Ok(test);
         }
     }
