@@ -22,8 +22,10 @@ namespace APIGateway.API.Controllers
         }
 
         [HttpPost]
+        [Route("/PostApiGet")]
         public async Task<IActionResult> PostDirectorsAsync([FromBody] JsonObjects jsonObjects)
         {
+            Console.WriteLine(jsonObjects.ToString());
             var test = await _refDataService.PostData(jsonObjects);
             return Ok(test);
         }

@@ -28,9 +28,9 @@ namespace APIGateway.API.Services
             ///// Stoped here
 
             var endpoint = _configuration.GetSection("CreateShop:link").Value;
-            //string body = "{\"ShopName\":\""+jsonObjects.JesonMainBadyRequest+"\",\"ShopDescription\":\"22222222222222\"}";
+            string body = "{\"ShopName\":\""+"asdfgh"+"\",\"ShopDescription\":\"22222222222222\"}";
             ////var body = JsonConvert.SerializeObject(data);
-            return (await Post<string>(_httpClient, new Uri(endpoint), jsonObjects.JesonMainBadyRequest)).Value;
+            return (await Post<string>(_httpClient, new Uri(endpoint),/* body*/ jsonObjects.JesonMainBadyRequest)).Value;
         }
     }
 }
